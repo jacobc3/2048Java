@@ -6,12 +6,14 @@
 
 package pkg2048java;
 
-import UI.MainFrame;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.sensitiver.UI2048.MainFrame;
+
 import static org.junit.Assert.*;
 
 /**
