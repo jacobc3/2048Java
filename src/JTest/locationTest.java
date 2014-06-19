@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import com.sensitiver.core2048.*;
 
+import edu.princeton.stdlib.StdOut;
+
 
 public class locationTest {
 

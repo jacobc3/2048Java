@@ -6,6 +6,8 @@
 
 package com.sensitiver.core2048;
 
+import edu.princeton.stdlib.StdOut;
+
 /**
  *
  * @author SephyZhou

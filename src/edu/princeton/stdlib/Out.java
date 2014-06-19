@@ -1,4 +1,4 @@
-package com.sensitiver.core2048;
+package edu.princeton.stdlib;
 /*************************************************************************
  *  Compilation:  javac Out.java
  *  Execution:    java Out
