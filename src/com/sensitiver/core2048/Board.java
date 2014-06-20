@@ -67,6 +67,51 @@ public class Board {
 		}
 	}
 	
+	
+	/**
+	 * Down: <br>
+	 * (unless broad is already in up-stable, which means this action won't make
+	 * any change to board.)<br>
+	 * from bottom to top<br>
+	 * slide every brick into most bottom column it can reach<br>
+	 * if there's any same number in vertical direction, add them up<br>
+	 * generate a random number between min-max in board<br>
+	 */
+	public void down() {
+		boolean changed = false;
+		//MOVE DOWN
+		for (int i = BasicSetting.vertical-1-1; i >= 0; i--) {
+			// ignoreing most bottom row, BasicSetting.vertical-1
+			for (int j = 0; j < BasicSetting.horizontal; j++) {
+				if (!isEmpty(i, j)) {
+					for (int k = BasicSetting.vertical-1; k > i; k--) {
+						if (isEmpty(k, j)) {
+							move(i, j, k, j);
+							changed = true;
+						}//END OF IF
+					}// END OF FOR
+				}//END OF IF
+			}
+		}// END OF FOR
+		
+		// VERTICAL ADD DOWN
+		for (int i = BasicSetting.vertical-1; i > 0; i--) {
+			for (int j = 0; j < BasicSetting.horizontal; j++) {
+				if (!isEmpty(i, j) && !isEmpty(i-1,j)) {
+						if (isEqual(i,j,i-1,j)) {
+							add(i,j,i-1,j);
+							changed = true;
+						}//END OF IF
+				}//END OF IF
+			}
+		}// END OF FOR
+		
+		//GENERATE NEW BRICK
+		if (changed) {// not in stable, generate random number
+			this.randomNewBrick();
+		} else {// in stable			
+		}
+	}
 	/**
 	 * Add up<br>Keep i0,j0, erase i1,j1
 	 * @param i0
@@ -81,6 +126,7 @@ public class Board {
 		}
 		bricks[i0][j0].add(bricks[i1][j1]);	
 		bricks[i1][j1] = null;
+		BasicSetting.maxOnBoard = bricks[i0][j0].getNumber();
 		return true;
 	}
 	

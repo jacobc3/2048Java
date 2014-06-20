@@ -43,6 +43,16 @@ public class BroadTest {
 		Board b = new Board();
 		StdOut.println(b.toString());
 		b.up();
-		StdOut.println(b.toString());
+		StdOut.println("UP\n"+b.toString());
+		b.down();		
+		StdOut.println("DOWN\n"+b.toString());
+		b.up();
+		StdOut.println("UP\n"+b.toString());
+		b.down();		
+		StdOut.println("DOWN\n"+b.toString());
+		b.up();
+		StdOut.println("UP\n"+b.toString());
+		b.down();		
+		StdOut.println("DOWN\n"+b.toString());
 	}
 }
