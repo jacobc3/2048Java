@@ -2,8 +2,8 @@ package com.sensitiver.core2048;
 
 public class Location {
 	// left, up corner : i=0, j=0
-	int i;//0~3 vertical
-	int j;//0~3 horizontal
+	private int i;//0~3 vertical
+	private int j;//0~3 horizontal
 	
 	public Location(int a, int b){
 		this.i = a;
@@ -51,11 +51,11 @@ public class Location {
 	}
 	
 	public int getLocationHorizontal(){
-		return this.i;
+		return this.j;
 	}
 	
 	public int getLocationVertical(){
-		return this.j;
+		return this.i;
 	}
 	
 	public String toString(){
