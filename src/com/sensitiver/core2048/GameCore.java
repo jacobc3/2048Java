@@ -6,31 +6,39 @@
 
 package com.sensitiver.core2048;
 
+import com.sensitiver.controller2048.CommandLineController;
+import com.sensitiver.controller2048.Controller;
+
+import edu.princeton.stdlib.StdIn;
 import edu.princeton.stdlib.StdOut;
 
 /**
  * 1. generate 2 number on board (2,2)<br>
  * 2. user keyboard command<br>
- * 	  <br>
- * 	  Up: <br>
- *        (unless broad is already in up-stable, which means this action won't make any change to board.)<br>
- *        from top to bottom<br>
- *        slide every brick into most top column it can reach<br>
- *        if there's any same number in vertical direction, add them up<br>
- *        generate a random number between min-max in board<br>
- *      
- *        
- *        
+ * <br>
+ * Up: <br>
+ * (unless broad is already in up-stable, which means this action won't make any
+ * change to board.)<br>
+ * from top to bottom<br>
+ * slide every brick into most top column it can reach<br>
+ * if there's any same number in vertical direction, add them up<br>
+ * generate a random number between min-max in board<br>
+ * 
+ * 
+ * 
  * @author SephyZhou
  */
 public class GameCore {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-       StdOut.println();
-        
-       
-    }
+	/**
+	 * @param args
+	 *            the command line arguments
+	 */
+	public static void main(String[] args) {
+		StdOut.println();
+		Board b = new Board();
+		StdOut.println(b.toString());
+		Controller c = new CommandLineController(b);
+		c.run();
+	}
 }

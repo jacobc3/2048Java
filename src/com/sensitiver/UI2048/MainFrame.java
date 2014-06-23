@@ -6,10 +6,12 @@
 
 package com.sensitiver.UI2048;
 
+import com.sensitiver.controller2048.Controller;
+import com.sensitiver.controller2048.UIController;
+import com.sensitiver.core2048.Board;
 import java.awt.KeyEventDispatcher;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import javax.swing.JButton;
 
 /**
@@ -60,6 +62,10 @@ public class MainFrame extends javax.swing.JFrame {
         downButton = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -67,18 +73,19 @@ public class MainFrame extends javax.swing.JFrame {
         gamePanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         gamePanel.setMinimumSize(new java.awt.Dimension(300, 300));
         gamePanel.setPreferredSize(new java.awt.Dimension(425, 425));
+        gameSetUp();
 
         jButton1.setBackground(new java.awt.Color(204, 255, 204));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 102, 0));
         jButton1.setText("1024");
         jButton1.setToolTipText("");
-        jButton1.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton1.setBorderPainted(false);
         gameButtonGroup.add(jButton1);
         jButton1.setContentAreaFilled(false);
         jButton1.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton1.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton1.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton1.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton1.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,12 +99,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(102, 102, 0));
         jButton2.setText("1024");
         jButton2.setToolTipText("");
-        jButton2.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton2.setBorderPainted(false);
         gameButtonGroup.add(jButton2);
         jButton2.setContentAreaFilled(false);
         jButton2.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton2.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton2.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton2.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton2.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -111,12 +118,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(102, 102, 0));
         jButton3.setText("1024");
         jButton3.setToolTipText("");
-        jButton3.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton3.setBorderPainted(false);
         gameButtonGroup.add(jButton3);
         jButton3.setContentAreaFilled(false);
         jButton3.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton3.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton3.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton3.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton3.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -130,12 +137,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(102, 102, 0));
         jButton4.setText("1024");
         jButton4.setToolTipText("");
-        jButton4.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton4.setBorderPainted(false);
         gameButtonGroup.add(jButton4);
         jButton4.setContentAreaFilled(false);
         jButton4.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton4.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton4.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton4.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton4.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -149,12 +156,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton5.setForeground(new java.awt.Color(102, 102, 0));
         jButton5.setText("1024");
         jButton5.setToolTipText("");
-        jButton5.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton5.setBorderPainted(false);
         gameButtonGroup.add(jButton5);
         jButton5.setContentAreaFilled(false);
         jButton5.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton5.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton5.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton5.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton5.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -168,12 +175,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton6.setForeground(new java.awt.Color(102, 102, 0));
         jButton6.setText("1024");
         jButton6.setToolTipText("");
-        jButton6.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton6.setBorderPainted(false);
         gameButtonGroup.add(jButton6);
         jButton6.setContentAreaFilled(false);
         jButton6.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton6.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton6.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton6.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton6.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -187,12 +194,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton7.setForeground(new java.awt.Color(102, 102, 0));
         jButton7.setText("1024");
         jButton7.setToolTipText("");
-        jButton7.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton7.setBorderPainted(false);
         gameButtonGroup.add(jButton7);
         jButton7.setContentAreaFilled(false);
         jButton7.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton7.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton7.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton7.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton7.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -206,12 +213,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton8.setForeground(new java.awt.Color(102, 102, 0));
         jButton8.setText("1024");
         jButton8.setToolTipText("");
-        jButton8.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton8.setBorderPainted(false);
         gameButtonGroup.add(jButton8);
         jButton8.setContentAreaFilled(false);
         jButton8.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton8.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton8.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton8.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton8.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -225,12 +232,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton9.setForeground(new java.awt.Color(102, 102, 0));
         jButton9.setText("1024");
         jButton9.setToolTipText("");
-        jButton9.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton9.setBorderPainted(false);
         gameButtonGroup.add(jButton9);
         jButton9.setContentAreaFilled(false);
         jButton9.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton9.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton9.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton9.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton9.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -244,12 +251,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton10.setForeground(new java.awt.Color(102, 102, 0));
         jButton10.setText("1024");
         jButton10.setToolTipText("");
-        jButton10.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton10.setBorderPainted(false);
         gameButtonGroup.add(jButton10);
         jButton10.setContentAreaFilled(false);
         jButton10.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton10.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton10.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton10.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton10.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -263,12 +270,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton11.setForeground(new java.awt.Color(102, 102, 0));
         jButton11.setText("1024");
         jButton11.setToolTipText("");
-        jButton11.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton11.setBorderPainted(false);
         gameButtonGroup.add(jButton11);
         jButton11.setContentAreaFilled(false);
         jButton11.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton11.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton11.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton11.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton11.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -282,12 +289,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton12.setForeground(new java.awt.Color(102, 102, 0));
         jButton12.setText("1024");
         jButton12.setToolTipText("");
-        jButton12.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton12.setBorderPainted(false);
         gameButtonGroup.add(jButton12);
         jButton12.setContentAreaFilled(false);
         jButton12.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton12.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton12.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton12.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton12.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -301,12 +308,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton13.setForeground(new java.awt.Color(102, 102, 0));
         jButton13.setText("1024");
         jButton13.setToolTipText("");
-        jButton13.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton13.setBorderPainted(false);
         gameButtonGroup.add(jButton13);
         jButton13.setContentAreaFilled(false);
         jButton13.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton13.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton13.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton13.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton13.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -320,12 +327,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton14.setForeground(new java.awt.Color(102, 102, 0));
         jButton14.setText("1024");
         jButton14.setToolTipText("");
-        jButton14.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton14.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton14.setBorderPainted(false);
         gameButtonGroup.add(jButton14);
         jButton14.setContentAreaFilled(false);
         jButton14.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton14.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton14.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton14.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton14.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -339,12 +346,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton15.setForeground(new java.awt.Color(102, 102, 0));
         jButton15.setText("1024");
         jButton15.setToolTipText("");
-        jButton15.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton15.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton15.setBorderPainted(false);
         gameButtonGroup.add(jButton15);
         jButton15.setContentAreaFilled(false);
         jButton15.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton15.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton15.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton15.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton15.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -358,12 +365,12 @@ public class MainFrame extends javax.swing.JFrame {
         jButton16.setForeground(new java.awt.Color(102, 102, 0));
         jButton16.setText("1024");
         jButton16.setToolTipText("");
-        jButton16.setBorder(new javax.swing.border.MatteBorder(null));
+        jButton16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 255, 204), null, null));
         jButton16.setBorderPainted(false);
         gameButtonGroup.add(jButton16);
         jButton16.setContentAreaFilled(false);
         jButton16.setMargin(new java.awt.Insets(5, 5, 5, 5));
-        jButton16.setMaximumSize(new java.awt.Dimension(200, 200));
+        jButton16.setMaximumSize(new java.awt.Dimension(80, 80));
         jButton16.setMinimumSize(new java.awt.Dimension(80, 80));
         jButton16.setPreferredSize(new java.awt.Dimension(80, 80));
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -377,74 +384,80 @@ public class MainFrame extends javax.swing.JFrame {
         gamePanelLayout.setHorizontalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gamePanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(gamePanelLayout.createSequentialGroup()
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gamePanelLayout.createSequentialGroup()
-                        .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
                         .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(73, 73, 73))
+                            .addGroup(gamePanelLayout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(gamePanelLayout.createSequentialGroup()
+                                .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(gamePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         gamePanelLayout.setVerticalGroup(
             gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(gamePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(gamePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(166, 166, 166))
+                    .addComponent(jButton13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         controlPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        upButton.setFont(new java.awt.Font("黑体", 1, 18)); // NOI18N
-        upButton.setText("�?);
+        upButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        upButton.setText("W");
         upButton.setMaximumSize(new java.awt.Dimension(60, 60));
         upButton.setMinimumSize(new java.awt.Dimension(60, 60));
         upButton.setName(""); // NOI18N
@@ -455,8 +468,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        leftButton.setFont(new java.awt.Font("黑体", 1, 18)); // NOI18N
-        leftButton.setText("�?);
+        leftButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        leftButton.setText("A");
         leftButton.setMaximumSize(new java.awt.Dimension(60, 60));
         leftButton.setMinimumSize(new java.awt.Dimension(60, 60));
         leftButton.setName(""); // NOI18N
@@ -467,8 +480,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        rightButton.setFont(new java.awt.Font("黑体", 1, 18)); // NOI18N
-        rightButton.setText("�?);
+        rightButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        rightButton.setText("D");
         rightButton.setMaximumSize(new java.awt.Dimension(60, 60));
         rightButton.setMinimumSize(new java.awt.Dimension(60, 60));
         rightButton.setName(""); // NOI18N
@@ -479,8 +492,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        downButton.setFont(new java.awt.Font("黑体", 1, 18)); // NOI18N
-        downButton.setText("�?);
+        downButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        downButton.setText("S");
         downButton.setMaximumSize(new java.awt.Dimension(60, 60));
         downButton.setMinimumSize(new java.awt.Dimension(60, 60));
         downButton.setName(""); // NOI18N
@@ -525,6 +538,25 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         jMenu1.setText("File");
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("New Game");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setText("Save Game");
+        jMenu1.add(jMenuItem2);
+        jMenu1.add(jSeparator1);
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setText("Exit");
+        jMenu1.add(jMenuItem3);
+
         menuBar.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -537,15 +569,15 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(gamePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(controlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+            .addComponent(gamePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
         );
 
         KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
@@ -638,6 +670,10 @@ public class MainFrame extends javax.swing.JFrame {
         keyDown();
     }//GEN-LAST:event_downButtonActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -676,6 +712,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void gameSetUp(){
+        controller = new UIController();
+        
         buttons = new JButton[4][4];
         buttons[0][0] = jButton1;
         buttons[0][1] = jButton2;
@@ -692,22 +730,40 @@ public class MainFrame extends javax.swing.JFrame {
         buttons[3][0] = jButton13;
         buttons[3][1] = jButton14;
         buttons[3][2] = jButton15;
-        buttons[3][3] = jButton16;                                                
+        buttons[3][3] = jButton16;
+        update();
+        buttons[0][0].setText("123");
+    }
+    
+    private void update(){        
+        for(int i =0; i<=3; i++){
+            for(int j =0; j<=3; j++){
+                buttons[i][j].setText(""+controller.getBoard().getNumber(i, j));
+            }
+        }
     }
     
     private boolean keyUp(){
-        return false;
+        controller.up();
+        update();
+        return true;
     }
       private boolean keyLeft(){
-        return false;
+         controller.left();
+         update();
+        return true;
     }  
       
     private boolean keyRight(){
-        return false;
+        controller.right();
+        update();
+        return true;
     }  
     
     private boolean keyDown(){
-        return false;
+        controller.down();
+        update();
+        return true;
     }
     private class MyDispatcher implements KeyEventDispatcher {
 		@Override
@@ -731,8 +787,9 @@ public class MainFrame extends javax.swing.JFrame {
 		}
 	}
     
-    
+    Board board;
     JButton[][] buttons;
+    Controller controller;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup controlButtonGroup;
     private javax.swing.JPanel controlPanel;
@@ -757,6 +814,10 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JButton leftButton;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JButton rightButton;
