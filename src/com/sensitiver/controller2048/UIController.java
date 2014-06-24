@@ -94,5 +94,9 @@ public class UIController implements Controller{
     public void run() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+	@Override
+	public int getNumber(int i, int j) {
+		return board.getNumber(i, j);
+	}
     
 }

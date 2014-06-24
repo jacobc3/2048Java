@@ -21,11 +21,11 @@ public class Board {
 		this.randomNewBrick();
 		this.randomNewBrick();
 	}
-        public String getNumber(int i, int j){
+        public int getNumber(int i, int j){
             if(bricks[i][j] != null){
-                return ""+bricks[i][j].getNumber();
+                return bricks[i][j].getNumber();
             }
-            return "";
+            return -1;
         }
 	/**
 	 * 

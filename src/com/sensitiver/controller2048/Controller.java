@@ -11,4 +11,5 @@ public interface Controller {
 	public void exit();
 	public Board getBoard();
 	public void run();
+	public int getNumber(int i, int j);
 }

@@ -103,4 +103,9 @@ public class CommandLineController implements Controller {
 		return board;
 	}
 
+	@Override
+	public int getNumber(int i, int j) {
+		return board.getNumber(i, j);
+	}
+
 }
